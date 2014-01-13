@@ -1,4 +1,4 @@
-from ftw.slider.testing import SLIDER_FUNCTIONAL_TESTING
+from ftw.slider.testing import SLIDER_FUNCTIONAL_SPLINTER_TESTING
 from ftw.testing.pages import Plone
 from ftw.testing import browser
 from unittest2 import TestCase
@@ -9,7 +9,7 @@ from plone.app.testing import setRoles
 
 class TestSliderCreation(TestCase):
 
-    layer = SLIDER_FUNCTIONAL_TESTING
+    layer = SLIDER_FUNCTIONAL_SPLINTER_TESTING
 
     def setUp(self):
         self.portal = self.layer['portal']
@@ -26,11 +26,6 @@ class TestSliderCreation(TestCase):
         Plone().create_object('Slider Container', {'Title': 'Container1'})
         self.assertIn('Item created',
                       Plone().portal_text_messages()['info'])
-
-    # def test_slider_pane_is_addable(self):
-    #     Plone().create_object('Slider Container', {'Title': 'Container1'})
-    #     Plone().create_object('Slider Pane', {'Title': 'Pane1',
-    #                                           'image': 'xx'})
 
     def test_redirect_if_there_is_already_a_container(self):
         Plone().create_object('Slider Container', {'Title': 'Container1'})

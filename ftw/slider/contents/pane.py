@@ -28,6 +28,11 @@ class IPaneSchema(Schema):
         required=False,
         source=PathSourceBinder()
         )
+    show_in_subcontent = schema.Bool(
+        title=_(u'label_show_in_subcontent', default=u'Show in subcontent'),
+        description=_(u'help_show_in_subcontent', default=u''),
+        default=False
+    )
 
 
 class Pane(Container):
